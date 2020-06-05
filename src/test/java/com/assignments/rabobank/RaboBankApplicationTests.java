@@ -26,7 +26,7 @@ class RaboBankApplicationTests {
 	@Autowired
 	ValidateCertificateImpl validationImpl;
 
-/*	// Unit testing for Request validation
+	// Unit testing for Request validation
 	@Test
 	public void validateRequestSuccess() throws PaymentException {
 		ResponseEntity<?> response = null;
@@ -68,4 +68,4 @@ class RaboBankApplicationTests {
 		assertEquals("INVALID_REQUEST", response.getStatusCode().toString());
 		// System.out.print("hello junit");
 	}
-*/}
+}
