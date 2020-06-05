@@ -13,7 +13,6 @@ import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.Base64;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 import java.util.regex.Matcher;
@@ -51,8 +50,7 @@ public class ValidateCertificateImpl implements ValidateCertificate {
 	 * assignments.rabobank.model.PaymentInitiationBody, java.util.HashMap)
 	 */
 	@Override
-	public ResponseEntity<?> requestValidation(PaymentInitiationBody paymentDetails, Map<String, String> headerMap)
-			 {
+	public ResponseEntity<?> requestValidation(PaymentInitiationBody paymentDetails, Map<String, String> headerMap) {
 		logger.info("method requestValidation started");
 		JSONObject obj = new JSONObject();
 		HttpHeaders httpHeaders = new HttpHeaders();
@@ -168,7 +166,7 @@ public class ValidateCertificateImpl implements ValidateCertificate {
 		if (!StringUtils.isEmpty(certificate)) {
 			CertificateFactory certFactory = null;
 			X509Certificate cert = null;
-			byte [] encodedCert = null;
+			byte[] encodedCert = null;
 			ByteArrayInputStream inputStream = null;
 			JSONObject obj = new JSONObject();
 			HttpHeaders httpHeaders = new HttpHeaders();
@@ -226,7 +224,7 @@ public class ValidateCertificateImpl implements ValidateCertificate {
 	 * @return the string
 	 * @throws PaymentException
 	 */
-	private String validateSignature(X509Certificate cert, String signatureHeader)  {
+	private String validateSignature(X509Certificate cert, String signatureHeader) {
 		String signResponse = "";
 		if (!StringUtils.isEmpty(signatureHeader)) {
 			try {
@@ -248,8 +246,8 @@ public class ValidateCertificateImpl implements ValidateCertificate {
 				if (signature.verify(signedCertData)) {
 					signResponse = ApplicationConstant.SIGNATURE_VERIFIED;
 				} else {
-					 //signResponse = ApplicationConstant.SIGNATURE_FAILED;
-					signResponse = ApplicationConstant.SIGNATURE_VERIFIED;
+					signResponse = ApplicationConstant.SIGNATURE_FAILED;
+					// signResponse = ApplicationConstant.SIGNATURE_VERIFIED;
 
 				}
 
