@@ -10,7 +10,7 @@
 5. To achieve the success scenario of returning paymentId i have hardcoded the signature validation response.
 6. Added spring security login configuration.
 7. Logger Implemented, added swagger UI, JavaDoc.
-8. Code coverage is done with Sonaqube. Please the report in code_coverage.docx
+8. Code coverage is done with Sonaqube. Please check the report in code_coverage.docx
 9. Implemented user defined exception - PaymenException for runtime exceptions with Controller Advice.
 9. Unit testing written for some scenario's
 
